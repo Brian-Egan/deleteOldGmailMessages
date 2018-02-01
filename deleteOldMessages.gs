@@ -1,4 +1,5 @@
 // Set `trashMessagesOlderThan()` to run once daily via a trigger. It will automatically clean the labels specified in the LABELS_TO_CLEAN array.
+// Set the date range (default is 30 days) by changing the `remove_messages_older_than` variable on line 5.
 
 var gmail = GmailApp;
 var remove_messages_older_than = 30; // How many days ago makes it old enough to trash?
@@ -37,7 +38,6 @@ function removeThreadsOlderThan(days, threads) {
 function dateDiff(from, to) {
   from = (typeof(from.getTime) === "function") ? from.getTime() : from;
   to = (typeof(to.getTime) === "function") ? to.getTime() : to;
-//  Logger.log(typeof(from.getTime) === "function");
  var day = (((60 * 60) * 24) * 1000);
  return ((from - to) / day); 
   
